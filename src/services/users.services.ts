@@ -10,6 +10,11 @@ class UserService {
         }))
         return result
     }
+
+    async getUser() {
+        const result = await databaseService.users.findOne()
+        return result
+    }
 }
 
 const userService = new UserService
