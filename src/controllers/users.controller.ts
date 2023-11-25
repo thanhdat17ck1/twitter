@@ -45,3 +45,21 @@ export const usersController = async (req:any, res:any) => {
         })
     }
 }
+
+export const userDetailController = async (req:any, res:any) => {
+    try {
+        const {id} = req.body
+        const result = await userService.getUserDetail(id)
+    
+        return res.status(200).json({
+            message: 'success',
+            result
+        })
+    }catch(error) {
+        return res.status(400).json({
+            error: "register failed"
+        })
+    }
+}
+
+

@@ -12,7 +12,12 @@ class UserService {
     }
 
     async getUser() {
-        const result = await databaseService.users.findOne()
+        const result = await databaseService.users.find().toArray()
+        return result
+    }
+
+    async getUserDetail(id: number) {
+        const result = await databaseService.users.findOne({id})
         return result
     }
 }
